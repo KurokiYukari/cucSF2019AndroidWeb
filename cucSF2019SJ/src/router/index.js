@@ -7,8 +7,7 @@ import UserProfiles from '@/components/UserProfiles'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'IndexPage',
       component: IndexPage
