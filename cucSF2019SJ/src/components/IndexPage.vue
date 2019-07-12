@@ -27,7 +27,6 @@
   import NaviBar from '@/components/NaviBar'
   import IndexVideoRow from '@/components/IndexVideoRow'
 
-  // gxz-add
   //静态json用于测试
   var json = {
     "code": 0,
@@ -2913,15 +2912,16 @@
       }]
     }
   }
-  
-  var v = {}; //接收单个视频的字典信息
-  var cplist = [
-    []
-  ]; //最终的二元列表
-  var cplistele = []; //包含两个视频字典的一元列表
-  var index = 0; //二元列表的下标
-  var list = json.data.list; //获取json文件的list
-  //gxz-end
+  // var newjson = {};
+
+  // var v = {}; //接收单个视频的字典信息
+  // var cplist = [
+  //   []
+  // ]; //最终的二元列表
+  // var cplistele = []; //包含两个视频字典的一元列表
+  // var index = 0; //二元列表的下标
+  // // var list = json.data.list; //获取json文件的list
+  // var list = this.getjson();
 
   export default {
     name: 'IndexPage',
@@ -2930,26 +2930,65 @@
       IndexVideoRow,
     },
     created() {
-      //处理json成目标二元列表
-      for (index = 0; index < list.length; index++) {
-        v = list[index];
-        // console.log(v);
-        if (index % 2 == 0) {
-          cplistele.push(v);
-        } else {
-          cplistele.push(v);
-          cplist[(index - 1) / 2] = cplistele;
-          cplistele = [];
-        }
-      }
-      // console.log(cplist);    
+      // this.getjson();
+      this.process();
     },
     data() {
       return {
-        cpVideoMsgList: cplist,
+        cpVideoMsgList: getjson(),
+      }
+    },
+    methods: {
+      getjson() {
+        var v = {}; //接收单个视频的字典信息
+        var cplist = [
+          []
+        ]; //最终的二元列表
+        var cplistele = []; //包含两个视频字典的一元列表
+        var index = 0; //二元列表的下标
+        // var list = json.data.list; //获取json文件的list
+        var list = [
+          []
+        ];
+        this.$axios.get('https://api.bilibili.com/x/web-interface/ranking', {
+            header: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+              'Access-Control-Allow-Headers': 'append,delete,entries,foreach,get,has,keys,set,values,Authorization'
+            },
+            params: {
+
+            }
+          })
+          .then(res => {
+              // this.newjson = res.data.list;
+              //处理json成目标二元列表
+              list = res.data.list;
+              for (index = 0; index < list.length; index++) {
+                v = list[index];
+                // console.log(v);
+                if (index % 2 == 0) {
+                  cplistele.push(v);
+                } else {
+                  cplistele.push(v);
+                  cplist[(index - 1) / 2] = cplistele;
+                  cplistele = [];
+                }
+                console.log(res);
+              })
+            .catch(err => {
+              console.error(err);
+            }) 
+            return cplist;
+          },
+          process() {
+
+          }
       }
     },
   }
+
 </script>
 
 <style scoped>
@@ -2976,4 +3015,5 @@
     width: 100%;
     height: 100%;
   }
+
 </style>
