@@ -1,6 +1,6 @@
 <template>
   
-  <el-row>
+  <el-row style="margin-bottom: 10px">
     <!-- 取消防盗链，拒绝检测访问图片的referrer -->
     <meta name="referrer" content="no-referrer" />
     <el-col :span="11" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
@@ -9,10 +9,10 @@
         <img v-bind:src="videoMsgs[index].pic" class="image">
         <div style="padding: 14px;">
           <!-- 标题 -->
-          <span>{{videoMsgs[index].title}}</span>
+          <div class="videoTitle">{{videoMsgs[index].title}}</div>
           <div class="bottom clearfix">
             <!-- 作者（没有分区） -->
-            <span class="subArea">{{videoMsgs[index].author}}</span>
+            <span class="author">{{videoMsgs[index].author}}</span>
           </div>
         </div>
       </el-card>
@@ -23,7 +23,12 @@
 
 
 <style>
-  .subArea {
+  .videoTitle {
+    height: 45px;
+    overflow: scroll;
+  }
+
+  .author {
     font-size: 13px;
     color: #999;
   }

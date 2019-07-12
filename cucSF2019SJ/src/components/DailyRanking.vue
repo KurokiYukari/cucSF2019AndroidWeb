@@ -1,7 +1,7 @@
 <template>
 <div id="DailyRankingPage">
     <NaviBar/>
-    Ranking!!!
+
 </div>
 </template>
 

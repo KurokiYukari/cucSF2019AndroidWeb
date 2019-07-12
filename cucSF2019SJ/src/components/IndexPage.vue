@@ -1,28 +1,26 @@
 <template>
-  <div>
+  <div style="margin-bottom:60px;">
     <NaviBar />
-    <template>
-      <div id="IndexPage">
-        <div class="block">
-          <el-carousel class="radiusBorderNShadow" height="150px">
-            <el-carousel-item>
-              <img src="../assets/1.jpg" alt="">
-            </el-carousel-item>
-            <el-carousel-item>
-              <img src="../assets/2.jpg" alt="">
-            </el-carousel-item>
-            <el-carousel-item>
-              <img src="../assets/3.jpg" alt="">
-            </el-carousel-item>
-            <el-carousel-item>
-              <img src="../assets/4.jpg" alt="">
-            </el-carousel-item>
-          </el-carousel>
-        </div>
+    <div id="IndexPage">
+      <div class="block">
+        <el-carousel class="radiusBorderNShadow" height="170px">
+          <el-carousel-item>
+            <img src="../assets/1.jpg" alt="" class="slideImg">
+          </el-carousel-item>
+          <el-carousel-item>
+            <img src="../assets/2.jpg" alt="" class="slideImg">
+          </el-carousel-item>
+          <el-carousel-item>
+            <img src="../assets/3.jpg" alt="" class="slideImg">
+          </el-carousel-item>
+          <el-carousel-item>
+            <img src="../assets/4.jpg" alt="" class="slideImg">
+          </el-carousel-item>
+        </el-carousel>
       </div>
-      <el-divider></el-divider>
-      <IndexVideoRow v-for="cpMsgs in cpVideoMsgList" :key="cpMsgs[0].name" v-bind:videoMsgs="cpMsgs" />
-    </template>
+    </div>
+    <el-divider></el-divider>
+    <IndexVideoRow v-for="cpMsgs in cpVideoMsgList" :key="cpMsgs[0].name" v-bind:videoMsgs="cpMsgs" />
   </div>
 </template>
 
@@ -2992,4 +2990,8 @@
     background-color: #d3dce6;
   }
 
+  .slideImg {
+    width: 100%;
+    height: 100%;
+  }
 </style>

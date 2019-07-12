@@ -1,5 +1,6 @@
 <template>
-  <el-row id="NaviBar">
+<div style="background:#ffffff;z-index:9999;position: fixed;top:0;left:0;width:100%; height:61px">
+<el-row id="NaviBar">
     <el-col :span="8" id="bilibili-logo">
       <svg data-name="\u56FE\u5C42 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 28" fill="#de698c">
         <defs></defs>
@@ -67,6 +68,7 @@
     </el-col>
     <el-col :span="24" style="height:1px ;margin-top: 10px;background: #de698c"></el-col>
   </el-row>
+</div>
 </template>
 
 <script>
@@ -82,7 +84,6 @@
 
 <style scoped>
   #NaviBar {
-    position: fixed;
     top: 10px;
     left: 5%;
     height: 40px;
