@@ -2,8 +2,8 @@
   <div style="margin-bottom:60px;">
     <NaviBar />
     <div id="IndexPage">
-      <div class="block">
-        <el-carousel class="radiusBorderNShadow" height="170px">
+      <div class="block" style="margin-bottom:20px">
+        <el-carousel class="radiusBorderNShadow" height="140px">
           <el-carousel-item>
             <img src="../assets/1.jpg" alt="" class="slideImg">
           </el-carousel-item>
@@ -19,7 +19,6 @@
         </el-carousel>
       </div>
     </div>
-    <el-divider></el-divider>
     <IndexVideoRow v-for="cpMsgs in cpVideoMsgList" :key="cpMsgs[0].name" v-bind:videoMsgs="cpMsgs" />
   </div>
 </template>
@@ -2947,27 +2946,10 @@
     },
     data() {
       return {
-        // 提供数组
-        // 此处将处理过的json文件连接过来
-        // cpVideoMsgList: [
-        //   [
-        //     {
-        //       title: "name1",
-        //       author: "sb1",
-        //       pic: "http://i2.hdslb.com/bfs/archive/c0c10f6e2bc009b8b3220ae3fa8c3d933f9257d5.jpg"
-        //     },
-        //     {
-        //       title: "name2",
-        //       author: "sb2",
-        //       pic: "http://i2.hdslb.com/bfs/archive/c0c10f6e2bc009b8b3220ae3fa8c3d933f9257d5.jpg"
-        //     }
-        //   ]
-        // ],
         cpVideoMsgList: cplist,
       }
     },
   }
-
 </script>
 
 <style scoped>
