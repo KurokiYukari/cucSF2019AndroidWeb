@@ -5,8 +5,17 @@
       <div id="IndexPage">
         <div class="block">
           <el-carousel class="radiusBorderNShadow" height="150px">
-            <el-carousel-item v-for="item in 4" :key="item">
-              <h3 class="small">{{ item }}</h3>
+            <el-carousel-item>
+              <img src="../assets/1.jpg" alt="">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img src="../assets/2.jpg" alt="">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img src="../assets/3.jpg" alt="">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img src="../assets/4.jpg" alt="">
             </el-carousel-item>
           </el-carousel>
         </div>
